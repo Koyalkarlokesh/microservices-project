@@ -1,22 +1,17 @@
-pipeline { 
+pipeline {
     agent any
 
     stages {
-        stage('Build & Tag Docker Image') {
+        stage('Build') {
             steps {
-                script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker build -t shaikmustafa/shippingservice:latest ."
-                    }
-                }
+                sh 'docker build -t saailokesh/shippingservice:latest'
             }
         }
-        
-        stage('Push Docker Image') {
+        stage('Push') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
-                        sh "docker push shaikmustafa/shippingservice:latest "
+                    withDockerRegistry(credentialsId: 'docker-cred') {
+                        sh 'docker push saailokesh/shippingservice:latest'
                     }
                 }
             }
