@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t saailokesh/adservice:latest'
+                sh 'docker build -t saailokesh/adservice:latest .'
             }
         }
         stage('Push') {
