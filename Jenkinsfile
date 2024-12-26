@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t saailokesh/cartservice:latest'
+                sh 'docker build -t saailokesh/cartservice:latest .'
             }
         }
         stage('Push') {
