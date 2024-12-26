@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t saailokesh/cartservice:latest ./src/services'
+                dir('src') {
+                    sh 'docker build -t saailokesh/cartservice:latest ./src/services'
+                }
             }
         }
         stage('Push') {
