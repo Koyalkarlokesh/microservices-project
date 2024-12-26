@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t saailokesh/currencyservice:latest'
+                sh 'docker build -t saailokesh/currencyservice:latest .'
             }
         }
         stage('Push') {
